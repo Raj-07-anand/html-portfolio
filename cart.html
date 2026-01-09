@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+<h3 id="total"></h3>
+
+<a href="index.html">⬅ Continue Shopping</a>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let container = document.getElementById("cart-items");
+
+  function renderCart() {
+    container.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p>Your cart is empty</p>";
+      document.getElementById("total").innerText = "";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
+
+      container.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.image}">
+          <div>
+            <h3>${item.name}</h3>
+            <p>₹${item.price}</p>
+
+            <button onclick="changeQty(${index}, -1)">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("total").innerText = "Total: ₹" + total;
+  }
+
+  function changeQty(index, change) {
+    cart[index].quantity += change;
+
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  renderCart();
+  <a href="order.html">
+  <button>Proceed to Checkout</button>
+</a>
+
+</script>
+
+</body>
+</html>
+
