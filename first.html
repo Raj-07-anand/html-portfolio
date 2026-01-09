@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">
+      amaz<span>on</span>
+      <img src="/home/raj-anand/web/images/logo.png">
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Search Amazon">
+      <button>Search</button>
+    </div>
+
+    <div class="nav-right">
+    <a href="signin.html">Sign In</a>
+    <a href="cart.html">Cart 🛒 (<span id="cart-count">0</span>)</a>
+    <a href="orders.html">Orders</a>
+  </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="products">
+
+    <div class="product">
+      <img src="/home/raj-anand/web/images/mobile phone.jpeg">
+      <h3>Mobile Phone</h3>
+      <p>₹15,000</p>
+      <button onclick="addToCart('Mobile Phone', 15000, 'images/mobile phone.jpeg')">
+  Add to Cart
+</button>
+
+    </div>
+
+    <div class="product">
+      <img src="/home/raj-anand/web/images/laptop.jpeg">
+      <h3>Laptop</h3>
+      <p>₹45,000</p>
+      <button onclick="addToCart('Laptop', 45000, 'images/laptop.jpeg')">
+  Add to Cart
+</button>
+
+    </div>
+
+    <div class="product">
+      <img src="/home/raj-anand/web/images/headphones.jpeg">
+      <h3>Headphones</h3>
+      <p>₹2,000</p>
+      <button onclick="addToCart('Headphones', 2000, 'images/headphones.jpeg')">
+      Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <img src="/home/raj-anand/web/images/shoes.jpeg">
+      <h3>Shoes</h3>
+      <p>₹3,000</p>
+      <button onclick="addToCart('Shoes', 3000, 'images/shoes.jpeg')">
+      Add to cart 
+      </button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
